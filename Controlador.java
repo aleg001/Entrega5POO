@@ -27,6 +27,7 @@ public class Controlador {
     int TrabajadorFormalIdioma;
     boolean TrabajadorFormalTransporte;
     boolean TrabajadorFormalHomeOffice;
+    int TrabajadorFormalExpertise;
 
     String TrabajadorInformalArea;
   
@@ -54,8 +55,7 @@ public class Controlador {
     ArrayList<ArrayList<String>> BaseDatosTrabajos = p.obtenerDatos("TABLA3");
     
     //Crear Trabajadores para que el programa lo lea.
-    for(int i = 0; i < BaseDatosTrabajadores.size(); i++){
-          
+    for(int i = 0; i < BaseDatosTrabajadores.size(); i++){  
       //Recuperando datos
       ArrayList<String> fila = BaseDatosTrabajadores.get(i);
       String nom = fila.get(1);
@@ -80,7 +80,10 @@ public class Controlador {
       //Creando instancias con los datos recuperados
       usuarioSamaj User = new usuarioSamaj(nom,ape,corr, telefono, cod );
       TrabajadorFormal NewTF = new TrabajadorFormal(User, edad, nievleducacion, idioma, experiencialaboral,transporte, homeoffice, expert);
-      Documentos.AddTrabajadorFormal(NewTF);
+      if ( Documentos.BaseTF.contains(NewTF) ) {} 
+      else {
+        Documentos.AddTrabajadorFormal(NewTF);
+      }
     }
 
     //Crear Usuarios para que el programa lo lea.
@@ -92,7 +95,10 @@ public class Controlador {
       int telefono = Integer.parseInt(fila.get(3));
       int cod = Integer.parseInt(fila.get(0));
       usuarioSamaj User = new usuarioSamaj(nom,ape,corr, telefono, cod );
-      Documentos.AddUsuario(User);
+      if (Documentos.Usuarios.contains(User)){}
+      else {
+        Documentos.AddUsuario(User);
+      }
     }
 
     // Crear Trabajos para que el programa lo lea.
@@ -124,8 +130,11 @@ public class Controlador {
         }
       }
 
-      //Se sube la instancia de trabajito
-      docs.AddTrabajoTemp(trabajito);
+      if ( Documentos.TrabajoTemp.contains(trabajito) ) {}
+      else {
+        //Se sube la instancia de trabajito
+        docs.AddTrabajoTemp(trabajito);
+      }
       
     }
 
@@ -161,7 +170,6 @@ public class Controlador {
 				int Telefono = Integer.parseInt(TelefonoU);
 				int Codigo = Integer.parseInt(CodigoU);
 				user = new usuarioSamaj(NombreU, ApellidoU, CorreoU, Telefono, Codigo);
-				p.nuevoRegistro(user);
 				v.PerfilExito(); //Mensaje de creado con éxito. CHILERISIMO
 				encontrado = true;
 				
@@ -191,12 +199,12 @@ public class Controlador {
 					  
 
 					  TrabajoTemp tratra = new TrabajoTemp(usertrabajito, categoria, descripcion, sueldo); //Se crea trabajo
-					  if(filon.size() >= 8){
-						for(int l = 8; l < filon.size(); l++){
-						  //Recorre los aplicantes y obtiene el dato tipo string para añadirlos en dado caso tenga estos
-						  String x = filon.get(l); 
-						  tratra.agregaraplicanteDato(x);
-						}
+					  if (filon.size() >= 8) {
+              for(int l = 8; l < filon.size(); l++){
+                //Recorre los aplicantes y obtiene el dato tipo string para añadirlos en dado caso tenga estos
+                String x = filon.get(l); 
+                tratra.agregaraplicanteDato(x);
+              }
 					  }
 					  v.imprimirTrabajo(tratra);
 
@@ -258,7 +266,11 @@ public class Controlador {
             TrabajadorFormalEdad = v.ingresarEdad();
             TrabajadorFormalEducacion = v.ingresarEducacion();
             TrabajdorFormalExpLaboral = v.ingresarExperienciaLaboral(); 
-            TrabajadorFormalExpertise = v.ingresarExpertise();
+            if(TrabajadorFormalEducacion == 3 || TrabajadorFormalEducacion == 4){
+              TrabajadorFormalExpertise = v.ingresarExpertise();
+            }else{
+              TrabajadorFormalExpertise = 0;
+            }
             TrabajadorFormalIdioma = v.ingresarIdioma();
             TrabajadorFormalTransporte = v.ingresarTransporte();
             TrabajadorFormalHomeOffice = v.ingresarHomeOffice();
@@ -307,6 +319,7 @@ public class Controlador {
         v.CrearTemp();
         String CategoriaTrabajo = v.ingresarCategoriaTrabajo();
         String DescripcionTrabajo = v.ingresarDescripcion();
+
         int Sueldo = v.ingresarSueldo();
         TrabajoTemp TrabajosTempo = new TrabajoTemp( user, CategoriaTrabajo, DescripcionTrabajo, Sueldo );
         docs.AddTrabajoTemp(TrabajosTempo);
@@ -384,7 +397,7 @@ public class Controlador {
             boolean subsubmenu2 = false;
             while(subsubmenu2 == false){
               int ConsejoEcon = v.ConsejosSubEcon();
-              if(ConsejosEcon ==1){
+              if(ConsejoEcon ==1){
                 v.ConsejoFinanciero1();
               }
               else if (ConsejoEcon == 2){

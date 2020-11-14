@@ -22,7 +22,7 @@ import java.lang.Boolean;
       Conexion cn = new Conexion();
       conn = cn.getConn();
       if(conn==null){
-         System.out.println("ERROR: La conexión al servidor no existe.");
+         System.out.println("ERROR: La conexion al servidor no existe.");
       }
    }
 
@@ -152,7 +152,7 @@ import java.lang.Boolean;
          PreparedStatement pst = conn.prepareStatement("DELETE FROM TABLA3 WHERE Registro = ? ");
          pst.setString(1,dato);
          int i = pst.executeUpdate();
-         System.out.println("Se ha eliminado"+Integer.toString(i)+" registro de la base de datos.");
+         System.out.println("Se ha eliminado un registro de la base de datos.");
       }catch(SQLException sqle){
          System.out.println(sqle);
       }

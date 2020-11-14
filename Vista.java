@@ -68,7 +68,7 @@ public class Vista {
       "\n1) Si" +
       "\n2) No" );
       System.out.println ( "Ingrese el numero de opcion: " );
-      opcS = scan.nextLine ();
+      opcS = scan.nextLine();
       opc = ValideNum( opcS );
       if ( opc != -1 ) {
         if(opc == 1){
@@ -78,7 +78,7 @@ public class Vista {
           Valide = false;
         }  
         else { 
-          System.out.println("Por favor ingrese una opción valida. \nIntente Nuevamente");
+          System.out.println("Por favor ingrese una opcion valida. \nIntente Nuevamente");
         }
       }
     }
@@ -176,7 +176,7 @@ public class Vista {
     }
     catch ( NumberFormatException e )
     {
-       System.out.println( "\nError! Ingrese un número valido por favor" );
+       System.out.println( "\nError! Ingrese un numero valido por favor" );
     }
     
     return newNum;
@@ -213,7 +213,7 @@ public class Vista {
        "Opciones:\n"+
        "\n\nBuscar Trabajo\n \n"+
        "1) Buscar trabajos temporales\n"+
-       "2) Regresar al menú principal\n"
+       "2) Regresar al menu principal\n"
      );
      while ( valide == true ) {
       System.out.println ( "Ingrese el numero de opcion: " );
@@ -317,7 +317,7 @@ public class Vista {
   */  
   
    public String ingresarNombre(){
-     System.out.println("\nIngrese su nombre: ");
+     System.out.println("Ingrese su nombre: ");
      String nombre = scan.nextLine();
      return nombre;
    }
@@ -454,7 +454,7 @@ public class Vista {
       boolean continuar = false;
       while(continuar==false){
         System.out.println("\nIngrese el idioma (1) de su dominio que desea mostrar en su perfil.\n");
-        System.out.println("1.Español \n2.Ingles \n3.Aleman \n4.Frances \n5.Mandarin \n6.Portugues \n7. Otros\n");
+        System.out.println(" 1. Espanol \n 2. Ingles \n 3. Aleman \n 4. Frances \n 5. Mandarin \n 6. Portugues \n 7. Otros\n");
         opc = scan.nextLine();
         int opcion = ValideNum(opc);
         if(opcion == 1 || opcion == 2 || opcion == 3 || opcion == 4 || opcion == 5 || opcion == 6 || opcion ==7){
@@ -637,9 +637,9 @@ public class Vista {
     boolean continuar = false;
 
     System.out.println("\n\nBUSCAR TRABAJORES BAJO CONTRATO:");
-    System.out.println("¿Desea buscar por nivel de educacion?");
+    System.out.println("Desea buscar por nivel de educacion?");
     System.out.println("    1.  Si\n    2.  No");
-    String ingresousu = scan.next();
+    String ingresousu = scan.nextLine();
     int ingresoniveledu = ValideNum(ingresousu);
     ArrayList<TrabajadorFormal> TrabajadoresFormales = Documentos.getTF();
     int size = TrabajadoresFormales.size();
@@ -651,9 +651,9 @@ public class Vista {
       if( ingresoniveledu == 1) {
         //Si quiere por nivel
         System.out.println("\n\nBUSCAR TRABAJORES POR NIVEL DE EDUCACION:");
-        System.out.println("    1.  Primaria\n    2.  Secuandaria\n     3.  Universitaria\n    4.Posgrados");
+        System.out.println("    1.  Primaria\n    2.  Secundaria\n    3.  Universitaria\n    4.  Posgrados");
         //Ingresos de usuario
-        String ingresEduS = scan.next();
+        String ingresEduS = scan.nextLine();
         int ingresoEdu = ValideNum(ingresEduS);  
 
         if( ingresoEdu == 1 ){
@@ -678,9 +678,9 @@ public class Vista {
           System.out.println(" -------E S T U D I O S   D E   N I V E L   U N I V E R S I T A R I O S -------\n");
           //Si quiere por nivel
           System.out.println("\n\nBUSCAR TRABAJORES POR TITULO UNIVERSITARIO:");
-          System.out.println("    1.  Ingenieria\n    2.  Marketing y Negocios\n     3.  Ciencias politicas\n      4.Analitica\n     5. Arquitectura\n     6.Medicina\n     7.Otros");
+          System.out.println("    1.  Ingenieria\n    2.  Marketing y Negocios\n    3.  Ciencias politicas\n    4.  Analitica\n    5.  Arquitectura\n    6.  Medicina\n    7.  Otros");
           //Ingresos de usuario
-          String ingresUS = scan.next();
+          String ingresUS = scan.nextLine();
           int ingresoU = ValideNum(ingresUS);  
 
           if(ingresoU == 1){
@@ -695,7 +695,7 @@ public class Vista {
               }
             }
           }else if(ingresoU == 2){
-            System.out.println("\n-------M A R K E T I N   Y    N E G O C I O S-------\n");
+            System.out.println("\n-------M A R K E T I N G  Y    N E G O C I O S-------\n");
             //Marketing
             for ( int i = 0 ; i< size ; i++ ) {
               //Recorre ArrayList de Trabajadores
@@ -728,7 +728,7 @@ public class Vista {
               }
             }
           }else if(ingresoU == 5){
-            System.out.println("\n-------A R Q U I T E -------\n");
+            System.out.println("\n-------A R Q U I T E C T U R A -------\n");
             //Arqui
             for ( int i = 0 ; i< size ; i++ ) {
               //Recorre ArrayList de Trabajadores
@@ -739,24 +739,41 @@ public class Vista {
               }
             }
           }else if(ingresoU == 6){
+            System.out.println("\n-------M E D I C O S-------\n");
             //Medicina
             for ( int i = 0 ; i< size ; i++ ) {
               //Recorre ArrayList de Trabajadores
               TrabajadorFormal Tempo = TrabajadoresFormales.get(i);
               int Expertise = Tempo.getNivelExpertise();
-              if (Tempo.getNivelEducacion()==3 && Expertise==20) {
+              if (Tempo.getNivelEducacion()==3 && Expertise==21) {
                 System.out.println(Tempo.toString());
               }
             }
           }else if(ingresoU == 7){
-            //Medicina
-          }else if(ingresoU == 8){
+            System.out.println("\n-------O T R O S-------\n");
             //Otros
+            for ( int i = 0 ; i< size ; i++ ) {
+              //Recorre ArrayList de Trabajadores
+              TrabajadorFormal Tempo = TrabajadoresFormales.get(i);
+              int Expertise = Tempo.getNivelExpertise();
+              if (Tempo.getNivelEducacion()==3 && Expertise==22) {
+                System.out.println(Tempo.toString());
+              }
+            }
           }
           
+        } else if ( ingresoEdu == 4 ) {
+          System.out.println(" -------E S T U D I O S   D E   N I V E L   P O S T G R A D O -------\n");
+          for ( int i = 0 ; i< size ; i++ ) {
+            //Recorre ArrayList de Trabajadores
+            TrabajadorFormal Tempo = TrabajadoresFormales.get(i);
+            if (Tempo.getNivelEducacion()==4 ) {
+              System.out.println(Tempo.toString());
+            }
+          }
         }
         
-      }else if(ingresoniveledu == 2){
+      } else if(ingresoniveledu == 2){
         //No quiere por nivel de educ
         for ( int i = 0 ; i< size ; i++ ) {
           //Recorre ArrayList de Trabajadores
@@ -790,38 +807,45 @@ public class Vista {
     boolean continuar = false;
     while(continuar==false){
       System.out.println("\nIngrese el titulo que obtuvo en sus estudios universitarios.\n");
-      System.out.println("1.Ingenieria \n2.Marketing y negocios \n3.Ciencias Politicas \n4.Analitica \n5.Arquitectura \n6.Medicina \n7. Otros\n");
+      System.out.println(" 1. Ingenieria \n 2. Marketing y negocios \n 3. Ciencias Politicas \n 4. Analitica \n 5. Arquitectura \n 6. Medicina \n 7. Otros\n");
       opc = scan.nextLine();
       int opcion = ValideNum(opc);
       if(opcion == 1){
         int OpcE1 = 0;
         //Ingenieria 
         System.out.println("\nIngrese la especializacion del area de ingenieria que obtuvo:\n");
-        System.out.println("1.Ingenieria Industrial \n2.Ingenieria Mecanica \n3.Ingenieria Mecatronica \n4.Ingenieria Quimica \n5.Ingenieria Civil \n6.Ingenieria en Sistemas \n7.Ingenieria en alimentos\n");
+        System.out.println(" 1. Ingenieria Industrial \n 2. Ingenieria Mecanica \n 3. Ingenieria Mecatronica \n 4. Ingenieria Quimica \n 5. Ingenieria Civil \n 6. Ingenieria en Sistemas \n 7. Ingenieria en alimentos\n");
         String opc1 = scan.nextLine();
         OpcE1 = ValideNum(opc1);
 
         //Verificar que ingreso.
         if(OpcE1 == 1){
           valor = 1;
+          continuar = true;
         }
         else if(OpcE1 == 2){
           valor = 2;
+          continuar = true;
         }
         else if(OpcE1 == 3){
           valor = 3;
+          continuar = true;
         }
         else if(OpcE1 == 4){
           valor = 4;
+          continuar = true;
         }
         else if(OpcE1 == 5){
           valor = 5;
+          continuar = true;
         }
         else if(OpcE1 == 6){
           valor = 6;
+          continuar = true;
         }
         else if(OpcE1 == 7){
           valor = 7;
+          continuar = true;
         }
       
       
@@ -829,79 +853,90 @@ public class Vista {
         int OpcE2 = 0;
         //Marketing y negocios
         System.out.println("\nIngrese la especializacion del area de Marketing y negocios que obtuvo:\n");
-        System.out.println("1.Mercadologo \n2.Gestor de comunidades virtuales \n3.Comercio internacional \n4.Promotores comerciales \n5.Especialista en SEO y Desarollo Web \n6.Otros\n");
+        System.out.println(" 1. Mercadologo \n 2. Gestor de comunidades virtuales \n 3. Comercio internacional \n 4. Promotores comerciales \n 5. Especialista en SEO y Desarollo Web \n 6. Otros\n");
 
         String opc2 = scan.nextLine();
         OpcE2 = ValideNum(opc2);
 
         if(OpcE2 == 1){
           valor = 8;
+          continuar = true;
         }
         else if(OpcE2 == 2){
           valor = 9;
+          continuar = true;
         }
         else if(OpcE2 == 3){
           valor = 10;
+          continuar = true;
         }
         else if(OpcE2 == 4){
           valor = 11;
+          continuar = true;
         }
         else if(OpcE2 == 5){
           valor = 12;
+          continuar = true;
         }
         else if(OpcE2 == 6){
           valor = 13;
+          continuar = true;
         }
 
       } else if(opcion == 3){
         //Ciencias politicas
         int OpcE3 = 0;
         System.out.println("\nIngrese la especializacion en el area de ciencias politicas que obtuvo.\n");
-        System.out.println("1.Abogacia rama civil \n2.Abogacia con especialización en penal \n3.Abogacia en el area constitucional \n4.Abogacia en el  area Comercial");
+        System.out.println(" 1.Abogacia rama civil \n 2. Abogacia con especializacion en penal \n 3. Abogacia en el area constitucional \n 4. Abogacia en el  area Comercial");
         String opc3 = scan.nextLine();
         OpcE3 = ValideNum(opc3);
          if(OpcE3 == 1){
           valor = 14;
+          continuar = true;
         }
         else if(OpcE3 == 2){
           valor = 15;
+          continuar = true;
         }
         else if(OpcE3 == 3){
           valor = 16;
+          continuar = true;
         }
         else if(OpcE3== 4){
           valor= 17;
+          continuar = true;
         }
         
       } else if(opcion == 4){
         // analitica
         int OpcE4 = 0;
         System.out.println("\nIngrese la especializacion en el area de Analitica que obtuvo.\n");
-        System.out.println("1.Analitica de internet \n2.Data Science");
+        System.out.println(" 1. Analitica de internet \n 2. Data Science");
         String opc4 = scan.nextLine();
         OpcE4 = ValideNum(opc4);
          if(OpcE4 == 1){
           valor = 18;
+          continuar = true;
         }
         else if(OpcE4 == 2){
           valor = 19;
+          continuar = true;
         }
       
         
       }else if(opcion == 5){
         //arquitectura
         valor = 20;
+        continuar = true;
         
       }else if(opcion == 6){
         //Medicina
         valor = 21;
+        continuar = true;
         
       }else if(opcion == 7){
         //Otros
         valor = 22;
-        
-      }
-        valor = opcion;
         continuar = true;
       } else { 
         // No hace falta agregar un mensaje de invalidación, puesto que el método ValideNum ya lo tiene.
@@ -923,8 +958,8 @@ public class Vista {
       int valor = 0;
       boolean continuar = false;
       while(continuar==false) {
-        opc = scan.nextLine();
-        scan.nextLine();
+        opc = scan.next();
+        scan.next();
         int opcion = ValideNum(opc);
         if (opcion != -1 && (categoriasTrabajo.size() < opcion || opcion > 0) ) {
           valor = opcion;
@@ -971,14 +1006,14 @@ public class Vista {
   */
 
     public int MensajeTieneUsuario(){
-      System.out.println("\n¿Posee codigo ID en Samaj 2020? \nIngrese Si / No según su respuesta.");
+      System.out.println("\n Posee codigo ID en Samaj 2020? \nIngrese Si / No segun su respuesta.");
       int devolucion = 0;
       String ingreso = "";
       boolean correct = false;
       while(correct == false){
         ingreso = scan.nextLine();
         ingreso = ingreso.toLowerCase();
-        if (ingreso == "si" || ingreso =="sí" ){
+        if (ingreso == "si" || ingreso =="si" ){
           devolucion = 1;
           correct = true;
         } else if(ingreso == "no"){
@@ -1025,8 +1060,8 @@ public class Vista {
     System.out.println("Ha ingresado un numero invalido. Por favor intente nuevamente");
   }
   public void MensajeDespedida(){
-    System.out.println("\n\n\nUsted ha salido del programa. \nCreditos: Alejandro Gomez, Alejandra Guzman, Paola de León Molina, Marco Jurado,Andres Osorio. ");
-    System.out.println("¡Esperamos que vuelva pronto!");
+    System.out.println("\n\n\nUsted ha salido del programa. \nCreditos: Alejandro Gomez, Alejandra Guzman, Paola de Leon Molina, Marco Jurado, Andres Osorio. ");
+    System.out.println("Esperamos que vuelva pronto!");
   }
   public void MensajeRegresoMenuPrincipal(){
     System.out.println("Regresando a menu principal... \n \n \n \n");
@@ -1109,7 +1144,7 @@ public void conexionBaseDeDatos(){
 public int ConsejosMenu(){
   boolean Validar = true;
   int opcConsejos = 0;
-  System.out.println("APARTADO DE CONSEJOS:");
+  System.out.println("\nAPARTADO DE CONSEJOS:\n");
   System.out.println(" 1. Consejos Psicologicos \n 2. Consejos Financieros \n 3. Regresar a menu \n Ingrese el numero de opcion: ");
   while (Validar==true) {
     String cons = scan.nextLine();
@@ -1127,7 +1162,7 @@ public int ConsejosMenu(){
   public int SubConsejosPsic(){
     boolean Validar = true;
     int opcConsejos = 0;
-    System.out.println("Consejos Psicologicos:");
+    System.out.println("\nConsejos Psicologicos:\n");
     System.out.println(" 1. Manejo de crisis \n 2. Linea antisuicidio \n 3. Contacto de ayuda \n 4. Regresar a menu \n Ingrese el numero de opcion: ");
     while (Validar==true) {
       String cons = scan.nextLine();
@@ -1145,7 +1180,7 @@ public int ConsejosMenu(){
 public int ConsejosSubEcon(){
   boolean Validar = true;
   int opcConsejos = 0;
-  System.out.println("Consejos Financieros:");
+  System.out.println("\nConsejos Financieros:\n");
   System.out.println(" 1. Presupuesto \n 2. Plan de Emergencia  \n 3. Prioridades financieras  \n 4. Regresar a menu \n Ingrese el numero de opcion: ");
   while (Validar==true) {
     String cons = scan.nextLine();
@@ -1162,17 +1197,17 @@ public int ConsejosSubEcon(){
 
   public void ConsejosCrisis(){ 
       //Opcion 1: Manejo de Crisis
-      System.out.println("\n1. Manejo de Crisis");
+      System.out.println("\n\n1. Manejo de Crisis\n");
       System.out.println("Mantenga la calma en todo momento");
       System.out.println("Todo mejorara, el sol vuelve a salir.");
-      System.out.println("Los siguientes links le serán de mucha ayuda:");
+      System.out.println("Los siguientes links le seran de mucha ayuda:");
       System.out.println("https://www.elempleo.com/co/noticias/consejos-profesionales/claves-para-el-manejo-de-crisis-en-las-organizaciones-5608");
       System.out.println("https://emprendedoresynegocios.com/manejo-de-crisis-empresarial/");
     }
 /* @author Alejandro Gomez */
 public void ConsejoFinanciero1(){ 
   //Opcion 1: Manejo de Crisis
-  System.out.println("\n1. Haga un presupuesto");
+  System.out.println("\n\n1. Haga un presupuesto\n");
   System.out.println("Debe priorizar las necesidades de su familia");
   System.out.println("Registre sus gastos usuales y lleve conteo del mismo.");
 
@@ -1180,7 +1215,7 @@ public void ConsejoFinanciero1(){
 /* @author Alejandro Gomez */
 public void ConsejoFinanciero2(){ 
   //Opcion 1: Manejo de Crisis
-  System.out.println("\n2. Desarolle un plan de emergencia");
+  System.out.println("\n\n2. Desarolle un plan de emergencia\n");
   System.out.println("Prevenga las dificultades financieras que su familia puede enfrentar");
   System.out.println("Concentrese en lo importante y mantenga una lista");
   System.out.println("Recuerde que es mejor prevenir que lamentar.");
@@ -1188,27 +1223,27 @@ public void ConsejoFinanciero2(){
 /* @author Alejandro Gomez */
 public void ConsejoFinanciero3(){ 
   //Opcion 1: Manejo de Crisis
-  System.out.println("\n3. Prioridades financieras");
+  System.out.println("\n\n3. Prioridades financieras\n");
   System.out.println("Reconozca aquellas compras no necesarias y evitelas por un tiempo");
   System.out.println("Aproveche las ofertas y saquele provecho a lo que tenga");
 }
 public void ConsejoInfoFinan(){
-  System.out.println("Para mas informacion, revise los siguientes links");
+  System.out.println("\nPara mas informacion, revise los siguientes links\n");
   System.out.println("https://qualitasoflife.org/wp-content/uploads/2020/03/Tips-Financieros-en-Tiempos-de-COVID-19-1.pdf");
   System.out.println("https://www.bbva.com/es/pe/cuatro-consejos-para-ahorrar-en-tiempos-de-coronavirus/");
 }
 /* @author Alejandro Gomez */
  public void ConsejosRestruc(){ 
       //Opcion 2: Reestructuracion de negocios
-      System.out.println("\n2. Reestructuracion de negocios");
-      System.out.println("Los siguientes links le serán de mucha ayuda:");
+      System.out.println("\n\n2. Reestructuracion de negocios");
+      System.out.println("Los siguientes links le seran de mucha ayuda:");
       System.out.println("https://www.emprendepyme.net/como-reestructurar-una-empresa-de-forma-exitosa.html");
       System.out.println("https://www.emprendepyme.net/reestructuracion-empresarial");
     }
 /* @author Alejandro Gomez */
   public void ConsejosAntiS(){ 
       //Opcion 3: Linea antisuicidio
-      System.out.println("\n3. Linea antisuicidio");
+      System.out.println("\n\n3. Linea antisuicidio\n");
       System.out.println("En caso necesite ayuda, recuerde que siempre hay alguien dispuesto a escucharlo");
       System.out.println("Linea de apoyo para Guatemala: 2232-6269 o 2238-3739");
       System.out.println("Direccion de linea de apoyo:  12 calle A 0-27, zona 1");
@@ -1216,14 +1251,14 @@ public void ConsejoInfoFinan(){
 /* @author Alejandro Gomez */
   public void ConsejosAyuda(){ 
       //Opcion 4: Contacto de ayuda
-      System.out.println("\n4. Contacto de ayuda");
+      System.out.println("\n\n4. Contacto de ayuda\n");
       System.out.println("No tome medidas drasticas si no se siente bien");
       System.out.println("Hemos habilitado una pagina para que pueda acudir en caso tenga cualquier duda");
       System.out.println("https://www.facebook.com/Samaj-2020-107001737815812");
     }
 
     public void MensajeErrorCorreo(){
-      System.out.println("Error! Por favor asegurese de ingresar un correo valido. \nUtilice el carácter -@-.\n \nIntente Nuevamente...\n");
+      System.out.println("Error! Por favor asegurese de ingresar un correo valido. \nUtilice el caracter -@-.\n \nIntente Nuevamente...\n");
     }
 
     public void CrearTemp(){
@@ -1241,7 +1276,7 @@ public void ConsejoInfoFinan(){
     }
 
   public void MensajeTrabajadorFormalExito(){
-    System.out.println("\n \nSu perfil se ha añadido a la base de datos. \n¡Esperamos lo contacten pronto!\n \n");
+    System.out.println("\n \nSu perfil se ha agregado a la base de datos. \nEsperamos lo contacten pronto!\n \n");
   }
     
 }

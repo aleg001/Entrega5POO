@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Documentos {
-
 	//Propiedades de clase
 	public static ArrayList<TrabajadorFormal> BaseTF; // ArrayList de trabajadores formales
 	public static ArrayList<TrabajadorInformal> BaseTT; // ArrayList de trabajadores informales

@@ -21,7 +21,7 @@ public class TrabajadorFormal extends usuarioSamaj {
   
   
   // Constructor
-  public TrabajadorFormal( usuarioSamaj user, int eda, int nivelEd, int idioma, boolean exp, boolean trans, boolean homeof, int NivelExpertise ) {
+  public TrabajadorFormal( usuarioSamaj user, int eda, int nivelEd, int idioma, boolean exp, boolean trans, boolean homeof, int nivelex ) {
     super( user.getNombre(), user.getApellido(), user.getCorreo(), user.getTelefono(), user.getCodigo() );
     Edad = eda;
     NivelEducacion = nivelEd;
@@ -59,7 +59,7 @@ public class TrabajadorFormal extends usuarioSamaj {
    */
   public String toString ( ) {
 
-    String mensaje = " Información de trabajador formal: \n";
+    String mensaje = " Informacion de trabajador formal: \n";
     mensaje += "\n          - Nombre y apellido: " + this.Nombre + " " + this.Apellido;
     mensaje += "\n          - Edad: " + this.Edad;
     mensaje += "\n          - Telefono: " + this.Telefono;
@@ -88,71 +88,73 @@ public class TrabajadorFormal extends usuarioSamaj {
     int NivelExpertise = this.NivelExpertise;
     //Preguntar al buki
     switch (NivelExpertise){
+      case 0:
+        break;
       case 1:
-      mensaje += "\n              - Se registro como: Ing. Industrial ";
+      mensaje += "\n          - Titulo universitario: Ing. Industrial ";
         break;
       case 2:
-      mensaje += "\n              - Se registro como: Ing. Mecanico";
+      mensaje += "\n          - Titulo universitario: Ing. Mecanico";
         break;
       case 3: 
-      mensaje += "\n              - Se registro como: Ing. Mecatronico";
+      mensaje += "\n          - Titulo universitario: Ing. Mecatronico";
         break;
       case 4:
-      mensaje += "\n              - Se registro como: Ing. Quimico";
+      mensaje += "\n          - Titulo universitario: Ing. Quimico";
         break;
       case 5:
-      mensaje += "\n              - Se registro como: Ing. Civil";
+      mensaje += "\n          - Titulo universitario: Ing. Civil";
         break;
       case 6: 
-      mensaje += "\n              - Se registro como: Ing. Sistemas";
+      mensaje += "\n          - Titulo universitario: Ing. Sistemas";
         break;
       case 7:
-      mensaje += "\n              - Se registro como: Ing. Alimentos ";
+      mensaje += "\n          - Titulo universitario: Ing. Alimentos ";
         break;
       case 8:
-      mensaje += "\n              - Se registro como: Mercadologo";
+      mensaje += "\n          - Titulo universitario: Mercadologo";
         break;
       case 9:
-      mensaje += "\n              - Se registro como: Mercadologo especializado en gestion de comunidades virtuales";
+      mensaje += "\n          - Titulo universitario: Mercadologo especializado en gestion de comunidades virtuales";
         break;
       case 10:
-      mensaje += "\n              - Se registro como: Mercadologo especializado en Comercios internacionales";
+      mensaje += "\n          - Titulo universitario: Mercadologo especializado en Comercios internacionales";
         break;
       case 11:
-      mensaje += "\n              - Se registro como: Mercadologo especializado en Promotores comerciales";
+      mensaje += "\n          - Titulo universitario: Mercadologo especializado en Promotores comerciales";
         break;
       case 12:
-      mensaje += "\n              - Se registro como: Mercadologo Especialista en SEO y Desarollo Web";
+      mensaje += "\n          - Titulo universitario: Mercadologo Especialista en SEO y Desarollo Web";
         break;
       case 13:
-      mensaje += "\n              - Se registro como: Mercadologo especializado";
+      mensaje += "\n          - Titulo universitario: Mercadologo especializado";
         break;
       case 14:
-      mensaje += "\n              - Se registro como: Ciencias politicas especializada en Abogacia rama civil";
+      mensaje += "\n          - Titulo universitario: Ciencias politicas especializada en Abogacia rama civil";
         break;
       case 15:
-      mensaje += "\n              - Se registro como: ciencias politicas especializada en Abogacia con especialización en penal";
+      mensaje += "\n          - Titulo universitario: ciencias politicas especializada en Abogacia con especialización en penal";
         break;
       case 16:
-      mensaje += "\n              - Se registro como: ciencias politicas especializada en Abogacia en el area constitucional";
+      mensaje += "\n          - Titulo universitario: ciencias politicas especializada en Abogacia en el area constitucional";
         break;
       case 17:
-      mensaje += "\n              - Se registro como: ciencias politicas especializada en Abogacia en el  area Comercial";
+      mensaje += "\n          - Titulo universitario: ciencias politicas especializada en Abogacia en el  area Comercial";
         break;
       case 18:
-      mensaje += "\n              - Se registro como: Analista especializada de internet";
+      mensaje += "\n          - Titulo universitario: Analista especializada de internet";
         break;
       case 19:
-      mensaje += "\n              - Se registro como: Analista especializado en data science";
+      mensaje += "\n          - Titulo universitario: Analista especializado en data science";
         break;
       case 20:
-      mensaje += "\n              - Se registro como: Arquitecto ";
+      mensaje += "\n          - Titulo universitario: Arquitecto ";
         break;
       case 21:
-      menesaje += "\n             - Se registro como: Medicina";
+      mensaje += "\n          - Titulo universitario: Medicina";
         break;
       case 22:
-      mensaje += "\n              - Se registro como: Otros";
+      mensaje += "\n          - Se registro como: Otros";
         break;
 
       default:
@@ -163,7 +165,7 @@ public class TrabajadorFormal extends usuarioSamaj {
     int Idiomas = this.Idiomas;
     switch ( Idiomas ) {
       case 1:
-        mensaje += "\n          - Idioma de conocimiento: Español";
+        mensaje += "\n          - Idioma de conocimiento: Espanol";
         break;
       case 2:
         mensaje += "\n          - Idiomas de conocimiento: Ingles";
@@ -178,7 +180,7 @@ public class TrabajadorFormal extends usuarioSamaj {
         mensaje += "\n          - Idiomas de conocimiento: Mandarin";
         break;
       case 6:
-        mensaje += "\n          - Idiomas de conocimiento: Portugués";
+        mensaje += "\n          - Idiomas de conocimiento: Portugues";
         break;
       case 7:
         mensaje += "\n          - Idiomas de conocimiento: Otros";
@@ -190,7 +192,7 @@ public class TrabajadorFormal extends usuarioSamaj {
 
     boolean Experiencia = this.Experiencia;
     if ( Experiencia == true ) {
-      mensaje += "\n          - Experiencia: Sí";
+      mensaje += "\n          - Experiencia: Si";
     }
     else {
       mensaje += "\n          - Experiencia: No";
@@ -198,7 +200,7 @@ public class TrabajadorFormal extends usuarioSamaj {
 
     Boolean Transporte = this.Transporte;
     if ( Transporte == true ) {
-      mensaje += "\n          - Transporte: Sí";
+      mensaje += "\n          - Transporte: Si";
     }
     else {
       mensaje += "\n          - Transporte: No";
@@ -206,7 +208,7 @@ public class TrabajadorFormal extends usuarioSamaj {
 
     boolean HomeOffice = this.HomeOffice;
     if ( HomeOffice == true ) {
-      mensaje += "\n          - Cuenta con herramientas para home office:: Sí";
+      mensaje += "\n          - Cuenta con herramientas para home office:: Si";
     }
     else {
       mensaje += "\n          - Cuenta con herramientas para home office: No";

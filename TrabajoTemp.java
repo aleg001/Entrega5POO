@@ -119,10 +119,10 @@ public class TrabajoTemp {
    */
   public String toString( ) {
     String mensaje = "";
-    mensaje += "          - Nombre del empleador: " + this.Nombre + "\n";
+    mensaje += "       - Nombre del empleador: " + this.Nombre + "\n";
     mensaje += "          - Telefono del empleador: " + this.Telefono+ "\n";
-    mensaje += "          - Categoría del trabajo temporal: " + this.CategoriaTrabajo+ "\n";
-    mensaje += "          - Descripción del trabajo temporal: " + this.DescripcionTrabajo+ "\n";
+    mensaje += "          - Categoria del trabajo temporal: " + this.CategoriaTrabajo+ "\n";
+    mensaje += "          - Descripcion del trabajo temporal: " + this.DescripcionTrabajo+ "\n";
     mensaje += "          - Sueldo del trabajo temporal: " + this.Sueldo+ "\n";
     
     return mensaje;
